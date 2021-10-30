@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import { StyleSheet, Text, View ,Image, KeyboardAvoidingView} from 'react-native'
 import { Button, Input } from 'react-native-elements';
 
-export default function LoginScreen() {
+export default function LoginScreen({navigation}) {
 
     const [email, setemail] = useState('')
     const [password, setpassword] = useState('')
@@ -25,7 +25,7 @@ export default function LoginScreen() {
                 <Input placeholder="Password"  type="password" secureTextEntry value={password} onChangeText={text => setpassword(text)} />
             </View>
             <Button title="Login" containerStyle={styles.button} onPress={signIn} />
-            <Button title="Register" type="outline" containerStyle={styles.button} />
+            <Button onPress={() => navigation.navigate('Register')} title="Register" type="outline" containerStyle={styles.button} />
             <View style={{height:100}} />
         </KeyboardAvoidingView>
     )

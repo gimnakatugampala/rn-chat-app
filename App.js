@@ -4,6 +4,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack';
 import LoginScreen from './screens/LoginScreen';
+import RegisterScreen from './screens/RegisterScreen';
 
 const Stack = createStackNavigator()
 
@@ -26,6 +27,12 @@ export default function App() {
        component={LoginScreen}
        options={{
          title:'Lets Sign Up'
+       }}
+       />
+      <Stack.Screen name="Register"
+       component={RegisterScreen}
+       options={{
+         title:'Lets Register'
        }}
        />
       </Stack.Navigator>
