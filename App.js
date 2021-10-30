@@ -1,13 +1,35 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
+import 'react-native'
 import { StyleSheet, Text, View } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native'
+import { createStackNavigator } from '@react-navigation/stack';
+import LoginScreen from './screens/LoginScreen';
+
+const Stack = createStackNavigator()
+
 
 export default function App() {
+
+  const globalScreenOptions = {
+    headerStyle:{backgroundColor:'#2C6BED'},
+    headerTitleStyle:{color:'white'},
+    headerTintColor:'white'
+  }
+
+
   return (
-    <View style={styles.container}>
-      <Text>Signal Clone</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator
+      screenOptions={globalScreenOptions}
+      >
+      <Stack.Screen name="Login"
+       component={LoginScreen}
+       options={{
+         title:'Lets Sign Up'
+       }}
+       />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 
