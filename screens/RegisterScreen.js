@@ -26,15 +26,15 @@ export default function RegisterScreen({navigation}) {
         auth.createUserWithEmailAndPassword(email,password)
         .then((authUser) => {
 
-            // auth.currentUser.updateProfile({
+            authUser.user.updateProfile({
+                displayName:name,
+                photoURL:imageUrl || 'https://cencup.com/wp-content/uploads/2019/07/avatar-placeholder.png'
+            })
+
+            // authUser.user.update({
             //     displayName:name,
             //     photoURL:imageUrl || 'https://cencup.com/up-content/uploads/2019/07/avatar-placeholder.png'
             // })
-
-            authUser.user.update({
-                displayName:name,
-                photoURL:imageUrl || 'https://cencup.com/up-content/uploads/2019/07/avatar-placeholder.png'
-            })
 
 
             console.log(authUser)

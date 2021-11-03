@@ -1,11 +1,38 @@
-import React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import React, { useLayoutEffect } from 'react'
+import { StyleSheet, Text, View ,SafeAreaView ,ScrollView ,TouchableOpacity } from 'react-native'
+import { Avatar } from 'react-native-elements'
+import CustomListItem from '../components/CustomListItem'
+import Firebase from '../firebase'
 
-export default function HomeScreen() {
+export default function HomeScreen({navigation}) {
+
+    const auth = Firebase.auth()
+
+    useLayoutEffect(() => {
+        navigation.setOptions({
+            title:'Signal',
+            headerStyle:{backgroundColor:'#fff'},
+            headerTitleStyle:{color:'black'},
+            headerTintColor:'black',
+            headerLeft:() => (
+                <View style={{marginLeft:20}}>
+                    <TouchableOpacity>
+                    <Avatar
+                    rounded
+                    source={{uri: auth?.currentUser?.photoURL}}
+                    />
+                    </TouchableOpacity>
+                </View>
+            )
+        })
+    }, [])
+
     return (
-        <View>
-            <Text>Home Screen</Text>
-        </View>
+        <SafeAreaView>
+            <ScrollView>
+                <CustomListItem />
+            </ScrollView>
+        </SafeAreaView>
     )
 }
 
