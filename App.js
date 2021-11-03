@@ -6,6 +6,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import LoginScreen from './screens/LoginScreen';
 import RegisterScreen from './screens/RegisterScreen';
 import HomeScreen from './screens/HomeScreen';
+import AddChatScreen from './screens/AddChatScreen';
 
 
 const Stack = createStackNavigator()
@@ -42,6 +43,12 @@ export default function App() {
        component={HomeScreen}
        options={{
          title:'Home'
+       }}
+       />
+      <Stack.Screen name="AddChat"
+       component={AddChatScreen}
+       options={{
+         title:'Add Chat'
        }}
        />
       </Stack.Navigator>
