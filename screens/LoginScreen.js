@@ -24,7 +24,8 @@ export default function LoginScreen({navigation}) {
     }, [])
 
     const signIn = () =>{
-
+        auth.signInWithEmailAndPassword(email,password)
+        .catch((error) => alert(error))
     }
 
 
@@ -37,7 +38,7 @@ export default function LoginScreen({navigation}) {
 
             <View style={styles.inputContainer}>
                 <Input placeholder="Email" autoFocus type="email" value={email} onChangeText={text => setemail(text)} />
-                <Input placeholder="Password"  type="password" secureTextEntry value={password} onChangeText={text => setpassword(text)} />
+                <Input placeholder="Password"  type="password" onSubmitEditing={signIn} secureTextEntry value={password} onChangeText={text => setpassword(text)} />
             </View>
             <Button title="Login" containerStyle={styles.button} onPress={signIn} />
             <Button onPress={() => navigation.navigate('Register')} title="Register" type="outline" containerStyle={styles.button} />
