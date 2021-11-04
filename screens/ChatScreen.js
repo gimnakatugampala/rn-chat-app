@@ -59,7 +59,7 @@ export default function ChatScreen({navigation,route}) {
             )
         })
         
-    }, [navigation])
+    }, [navigation,messages])
 
     const sendMessage = () =>{
         Keyboard.dismiss()
